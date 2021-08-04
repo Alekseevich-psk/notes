@@ -1,5 +1,16 @@
-// Позиционирование по центру:
+/* Позиционирование по центру: */
 position: absolute;
 top:50%;
 left:50%;
 transform: translate(-50%, -50%) ;
+
+
+/* dispaly none */
+visibility: hidden;
+opacity: 0;
+width: 0; 
+height: 0;
+position: absolute; 
+top: -9999px; 
+left: -9999px;
+display: none !important;
