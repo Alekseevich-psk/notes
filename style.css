@@ -10,6 +10,10 @@ right: 0;
 width: 43%;
 transform: translate(0%, -50%);
 
+transform: scale(-1, 1) — отражение по горизонтали;
+transform: scale(1, -1) — отражение по вертикали;
+transform: scale(-1, -1) — одновременное отражение по горизонтали и вертикали.
+
 
 /* dispaly none */
 visibility: hidden;
