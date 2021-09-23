@@ -11,5 +11,3 @@ for (let anchor of anchors) {
     })
   })
 }
-
-window.addEventListener('scroll', trackScroll);
