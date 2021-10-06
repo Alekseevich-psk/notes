@@ -37,3 +37,55 @@ window.addEventListener('scroll', function() {
 
 // А также запустим функцию сразу. А то вдруг, элемент изначально видно
 Visible (element);
+
+
+
+
+
+
+
+// _____________________________________________
+const section = document.querySelectorAll('section');
+let positionElems = [];
+
+setPositionElems(section, positionElems);
+checkActivePositionInWindow(positionElems);
+
+window.addEventListener('scroll', function () {
+    checkActivePositionInWindow(positionElems);
+});
+
+window.addEventListener('resize', function () {
+    setPositionElems(section, positionElems);
+    checkActivePositionInWindow(positionElems);
+    console.log(positionElems);
+});
+
+function setPositionElems(elems, arr) {
+    elems.forEach((elem, i) => {
+        arr[i] = getPositionElem(elem);
+    })
+}
+
+function getPositionElem(elem) {
+    let top = window.pageYOffset + elem.getBoundingClientRect().top;
+    let bottom = window.pageYOffset + elem.getBoundingClientRect().bottom;
+    let centerElem = (bottom - top) / 2 + top;
+    return centerElem;
+}
+
+function getPositionWindow() {
+    let top = window.pageYOffset;
+    let bottom = window.pageYOffset + document.documentElement.clientHeight;
+    return {top, bottom};
+}
+
+function checkActivePositionInWindow (arr) {
+    let positionWindow = getPositionWindow();
+
+    arr.forEach((elem, index) => {
+        if (elem > positionWindow.top && elem < positionWindow.bottom) {
+            console.log(index);
+        }
+    })
+}
