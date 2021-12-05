@@ -63,11 +63,11 @@ window.addEventListener('resize', function () {
 
 function setPositionElems(elems, arr) {
     elems.forEach((elem, i) => {
-        arr[i] = getPositionElem(elem);
+        arr[i] = getPositionHightElem(elem);
     })
 }
 
-function getPositionElem(elem) {
+function getPositionHightElem(elem) {
     let top = window.pageYOffset + elem.getBoundingClientRect().top;
     let bottom = window.pageYOffset + elem.getBoundingClientRect().bottom;
     let centerElem = (bottom - top) / 2 + top;
