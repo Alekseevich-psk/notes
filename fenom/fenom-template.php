@@ -2,8 +2,6 @@
 {block 'main'}
 {/block}
 
-{$content | replace ...}
-
 {$_modx->resource['tb1-title']}
 {$_modx->runSnippet('phone')  | phone}
 
