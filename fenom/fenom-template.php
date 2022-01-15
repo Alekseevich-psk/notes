@@ -200,6 +200,16 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
 'tpl' => '@FILE:chunks/newsInner.tpl',
 ])}
 
+{'pdoResources' | snippet : [
+    'parents' => '54',
+    'resources' => '55,56,57,72,73,91,71',
+    'sortdir' => 'ASC',
+    'limit' => 8,
+    'includeContent' => '1',
+    'includeTVs' => 'picture',
+    'tpl' => '@FILE chunks/slider/service-slider-index.tpl'
+    ]}
+
 {set $emailFrom = 'mail_smtp_user'|option}
 {$_modx->runSnippet('!AjaxForm', [
     'snippet' => 'FormIt',
@@ -214,37 +224,50 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
     'successMessage' => 'Сообщение успешно отправлено!'
 ])}
 
-      {$_modx->runSnippet('pdoMenu', [
-      'parents'=> '0',
-      'level' => 1,
-      'tplOuter' => '@INLINE <ul>[[+wrapper]]</ul>',
-      'tpl' => '@INLINE <li><a href="[[+link]]">[[+pagetitle]]</a>[[+wrapper]]</li>',
-      'tplHere' => '@INLINE <li class="active"><a href="[[+link]]">[[+pagetitle]]</a>[[+wrapper]]</li>',
-      ])}
+{$_modx->runSnippet('pdoMenu', [
+'parents'=> '0',
+'level' => 1,
+'tplOuter' => '@INLINE <ul>[[+wrapper]]</ul>',
+'tpl' => '@INLINE <li><a href="[[+link]]">[[+pagetitle]]</a>[[+wrapper]]</li>',
+'tplHere' => '@INLINE <li class="active"><a href="[[+link]]">[[+pagetitle]]</a>[[+wrapper]]</li>',
+])}
 
 
-    {set $title = ($_modx->resource.longtitle ? : $_modx->resource.pagetitle) | notags}
-    {set $description = ($_modx->resource.description) | replace :' "':' «' | replace :'"':'»'}
-    {set $sitename = ('site_name' | config) | replace :' "':' «' | replace :'"':'»'}
-    {set $page = 'site_url' | config ~ $_modx->resource.uri}
+{set $title = ($_modx->resource.longtitle ? : $_modx->resource.pagetitle) | notags}
+{set $description = ($_modx->resource.description) | replace :' "':' «' | replace :'"':'»'}
+{set $sitename = ('site_name' | config) | replace :' "':' «' | replace :'"':'»'}
+{set $page = 'site_url' | config ~ $_modx->resource.uri}
 
-    <base href="{'site_url' | config}">
+<base href="{'site_url' | config}">
 
-    <title>{$title}</title>
+<title>{$title}</title>
 
 
 
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="{$sitename}">
-    <meta property="og:title" content="{$title}">
-    <meta property="og:description" content="{$description}">
-    <meta property="og:url" content="{$page}">
-    <meta property="og:locale" content="uk_UA">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{$sitename}">
+<meta property="og:title" content="{$title}">
+<meta property="og:description" content="{$description}">
+<meta property="og:url" content="{$page}">
+<meta property="og:locale" content="uk_UA">
 
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{$title}">
-    <meta name="twitter:description" content="{$description}">
-    <meta name="twitter:url" content="{$page}">
-    <meta name="twitter:domain" content="{'site_url' | config}">
-    <meta name="twitter:site" content="@site_account">
-    <meta name="twitter:creator" content="@individual_account">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{$title}">
+<meta name="twitter:description" content="{$description}">
+<meta name="twitter:url" content="{$page}">
+<meta name="twitter:domain" content="{'site_url' | config}">
+<meta name="twitter:site" content="@site_account">
+<meta name="twitter:creator" content="@individual_account">
+
+
+<div class="col-xl-3 col-md-6 col-xs-12 mb-3 service-card">
+    <img src="{$_pls['tv.picture'] | phpthumbon : "w=480&h=200&zc=95"}" alt="{$longtitle}">
+    <a href="{$id | url}" class="slider__link"><div class="slider__sub-title">{$longtitle}</div></a> 
+    {set $rows = ($id | resource: "tableServiceCards") | fromJSON}
+    {foreach $rows as $row}
+    <div class="price_cards">Цена: <b>{$row.price} руб.</b></div>
+    {/foreach}
+    <button class="btn col-md-12 mb-2 header__btn order-sushka-sl">Заказать сушку</button>
+</div>
+
+
