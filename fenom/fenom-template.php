@@ -2,6 +2,11 @@
 {block 'main'}
 {/block}
 
+{include "file:templates/document.tpl"}
+{include "file:templates/service.tpl"}
+{include "file:templates/contacts.tpl"}
+{include "file:templates/document-list.tpl"}
+
 {$_modx->resource['tb1-title']}
 {$_modx->runSnippet('phone')  | phone}
 
