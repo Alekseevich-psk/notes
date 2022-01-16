@@ -17,6 +17,8 @@
 {$order | print}
 {$_pls['tv.picture']}
 
+{set $rows = json_decode($_modx->resource.id | resource: 'bgs-work', true)}
+
 {$_modx->runSnippet('copyYears', ['start' => '2021',])}
 
 {$_modx->resource.description}
