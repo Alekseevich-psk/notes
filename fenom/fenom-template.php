@@ -17,6 +17,8 @@
 {$order | print}
 {$_pls['tv.picture']}
 
+{$_modx->runSnippet('copyYears', ['start' => '2021',])}
+
 {$_modx->resource.description}
 {$_modx->resource.content}
 {$_modx->resource.pagetitle}
