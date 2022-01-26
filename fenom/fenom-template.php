@@ -37,7 +37,6 @@
 
 'tpl' => '@FILE:chunks/newsInner.tpl'
 
-
 // Получение значения TV у произвольного ресурса:
 {1 | resource: 'tv_name'}
 
@@ -111,9 +110,6 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
 // Модификатор дата
 {$_modx->resource.publishedon | date_format:"%d-%m-%Y %H:%M:%S"}
 
-
-
-
 // Устанавливаем id текущей страницы в переменную
 {set $id = $_modx->resource.id}
 #Условие
@@ -151,11 +147,11 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
 {'page.nav' | placeholder}
 
 
-       [[!msOrdersProducts?
-        &order=[[+id]]
-        &tpl=`tpl.order_row`
-        &tpl_empty=`tpl.order_row_empty`
-        ]]
+[[!msOrdersProducts?
+&order=[[+id]]
+&tpl=`tpl.order_row`
+&tpl_empty=`tpl.order_row_empty`
+]]
 
 {$_modx->runSnippet('!pdoResources',[
    'parents' => 12,
@@ -185,6 +181,16 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
         'tplCurrent' => '@INLINE <li class="visited">{$menutitle}</li>'
         ]}
     </nav>
+</div>
+
+<div class="col-xl-3 col-md-6 col-xs-12 mb-3 service-card">
+    <img src="{$_pls['tv.picture'] | phpthumbon : "w=480&h=200&zc=95"}" alt="{$longtitle}">
+    <a href="{$id | url}" class="slider__link"><div class="slider__sub-title">{$longtitle}</div></a> 
+    {set $rows = ($id | resource: "tableServiceCards") | fromJSON}
+    {foreach $rows as $row}
+    <div class="price_cards">Цена: <b>{$row.price} руб.</b></div>
+    {/foreach}
+    <button class="btn col-md-12 mb-2 header__btn order-sushka-sl">Заказать</button>
 </div>
 
 
@@ -247,12 +253,10 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
 {set $sitename = ('site_name' | config) | replace :' "':' «' | replace :'"':'»'}
 {set $page = 'site_url' | config ~ $_modx->resource.uri}
 
+
+
 <base href="{'site_url' | config}">
-
 <title>{$title}</title>
-
-
-
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{$sitename}">
 <meta property="og:title" content="{$title}">
@@ -267,16 +271,3 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
 <meta name="twitter:domain" content="{'site_url' | config}">
 <meta name="twitter:site" content="@site_account">
 <meta name="twitter:creator" content="@individual_account">
-
-
-<div class="col-xl-3 col-md-6 col-xs-12 mb-3 service-card">
-    <img src="{$_pls['tv.picture'] | phpthumbon : "w=480&h=200&zc=95"}" alt="{$longtitle}">
-    <a href="{$id | url}" class="slider__link"><div class="slider__sub-title">{$longtitle}</div></a> 
-    {set $rows = ($id | resource: "tableServiceCards") | fromJSON}
-    {foreach $rows as $row}
-    <div class="price_cards">Цена: <b>{$row.price} руб.</b></div>
-    {/foreach}
-    <button class="btn col-md-12 mb-2 header__btn order-sushka-sl">Заказать сушку</button>
-</div>
-
-
