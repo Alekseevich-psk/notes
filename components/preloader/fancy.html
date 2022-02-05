@@ -1,0 +1,32 @@
+<!-- node_modules/@fancyapps/ui/dist/fancybox.umd.js -->
+<!-- ../../node_modules/@fancyapps/ui/dist/fancybox -->
+
+ <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
+    <a data-fancybox="gallery" data-src="https://lipsum.app/id/2/1024x768" data-caption="">
+        <img src="https://lipsum.app/id/2/200x150" />
+    </a>
+
+    <a data-fancybox="gallery" data-src="https://lipsum.app/id/3/1024x768">
+        <div><img src="https://lipsum.app/id/3/200x150" /></div>
+    </a>
+
+    <a data-fancybox="gallery" data-src="https://lipsum.app/id/4/1024x768">
+        <img src="https://lipsum.app/id/4/200x150" />
+    </a>
+    <a data-fancybox="gallery" data-src="https://lipsum.app/id/4/1024x768">
+        <img src="https://lipsum.app/id/4/200x150" />
+    </a>
+</div>
+
+<script>
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        Thumbs: {
+            Carousel: {
+                fill: false,
+                center: true,
+            },
+        },
+    });
+</script>
+    
+   
