@@ -1,0 +1,51 @@
+<script>
+    const btnTop = document.querySelector('.btn-top');
+    console.log(btnTop);
+
+    if(btnTop) {
+        trackScroll(btnTop);
+        window.onscroll = () => {trackScroll(btnTop)}
+    }
+
+    function trackScroll(el) {
+        let scrolled = window.pageYOffset;
+        let coords = 120;
+
+        if (scrolled >= coords) {
+            el.classList.add('show');
+        }
+
+        if (scrolled <= coords) {
+            el.classList.remove('show');
+        }
+    }
+</script>
+
+<style>
+    .btn-top {
+        display: none;
+        cursor: pointer;
+        z-index: 100;
+        position: fixed;
+        bottom: 120px;
+        right: 120px;
+        width: 38px;
+        height: 38px;
+
+    &.show {
+         display: block;
+     }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    }
+</style>
+
+<div class="btn-top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 28 28">
+        <path fill="#058DA5" d="M28 14a14 14 0 10-28 0 14 14 0 0028 0zm-13.125 6.125a.875.875 0 11-1.75 0V9.987L9.37 13.745a.876.876 0 01-1.24-1.24l5.25-5.25a.875.875 0 011.24 0l5.25 5.25a.876.876 0 11-1.24 1.24l-3.755-3.758v10.138z"/>
+    </svg>
+</div>
