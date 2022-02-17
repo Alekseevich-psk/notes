@@ -20,7 +20,7 @@
 {set $rows = json_decode($_modx->resource.id | resource: 'bgs-work', true)}
 
 {$_modx->runSnippet('copyYears', ['start' => '2021',])}
-
+<base href="{$_modx->config.site_url}">
 {$_modx->resource.description}
 {$_modx->resource.content}
 {$_modx->resource.pagetitle}
