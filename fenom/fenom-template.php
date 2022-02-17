@@ -17,7 +17,14 @@
 {$order | print}
 {$_pls['tv.picture']}
 
-{set $rows = json_decode($_modx->resource.id | resource: 'bgs-work', true)}
+{set $rows = json_decode($id | resource : 'service-tv', true)}
+{foreach $rows as $row}
+{set $photo = '/assets/template/gallery/' ~ $row.picture}
+<a class="services__link carousel__slide" data-fancybox="gallery"
+   data-src="{$photo}" data-caption="{$row.title}">
+    <img class="services__picture" src="{$photo | phpthumbon : "w=180&h=140&zc=1"}"/>
+</a>
+{/foreach}
 
 {$_modx->runSnippet('copyYears', ['start' => '2021',])}
 <base href="{$_modx->config.site_url}">
