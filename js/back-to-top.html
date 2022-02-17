@@ -5,6 +5,7 @@
     if(btnTop) {
         trackScroll(btnTop);
         window.onscroll = () => {trackScroll(btnTop)}
+        btnTop.addEventListener('click', backToTop);
     }
 
     function trackScroll(el) {
@@ -19,6 +20,13 @@
             el.classList.remove('show');
         }
     }
+    
+    function backToTop() {
+        if (window.pageYOffset > 0) {
+            window.scrollBy(0, -80);
+            setTimeout(backToTop, 0);
+        }
+    }
 </script>
 
 <style>
@@ -27,8 +35,8 @@
         cursor: pointer;
         z-index: 100;
         position: fixed;
-        bottom: 120px;
-        right: 120px;
+        bottom: 5%;
+        right: 5%;
         width: 38px;
         height: 38px;
 
