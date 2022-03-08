@@ -1,0 +1,62 @@
+<style>
+    .btn-top {
+        display: none;
+        cursor: pointer;
+        z-index: 100;
+        position: fixed;
+        bottom: 120px;
+        right: 5%;
+        width: 38px;
+        height: 38px;
+
+        @media(max-width: 768px) {
+            bottom: 10%;
+        }
+
+        &.show {
+            display: block;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+</style>
+
+
+<div class="btn-top">
+    <img src="./assets/template/images/svg/top.svg" alt="">
+</div>
+
+<script>
+    const btnTop = document.querySelector('.btn-top');
+
+    if (btnTop) {
+        trackScroll(btnTop);
+        window.onscroll = () => { trackScroll(btnTop) }
+
+        btnTop.addEventListener('click', backToTop);
+    }
+
+    function trackScroll(el) {
+        let scrolled = window.pageYOffset;
+        let coords = 120;
+
+        if (scrolled >= coords) {
+            el.classList.add('show');
+        }
+
+        if (scrolled <= coords) {
+            el.classList.remove('show');
+        }
+    }
+
+    function backToTop() {
+        if (window.pageYOffset > 0) {
+            window.scrollBy(0, -80);
+            setTimeout(backToTop, 0);
+        }
+    }
+</script>
