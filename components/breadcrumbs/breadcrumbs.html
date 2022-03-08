@@ -1,0 +1,59 @@
+<div class="document__breadcrumbs breadcrumbs">
+    <ul class="breadcrumbs__wrap">
+        <li class="breadcrumbs__item">
+            <a href="" class="breadcrumbs__link">Главная</a>
+        </li>
+        <li class="breadcrumbs__item">
+            <a href="" class="breadcrumbs__link">Страница</a>
+        </li>
+        <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link breadcrumbs__link--current">Каталог</a>
+        </li>
+    </ul>
+</div>
+
+<style>
+    .breadcrumbs {
+    padding: 32px 0;
+    position: relative;
+    min-height: 88px;
+    z-index: 2;
+
+    &__item {
+        display: inline-block;
+        padding-left: 2px;
+
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+
+    &__link {
+        position: relative;
+        padding-right: 12px;
+        font-size: 14px;
+
+        &:after {
+            content: "";
+            width: 6px;
+            height: 8px;
+            display: block;
+            position: absolute;
+            bottom: 1px;
+            right: 0;
+            transform: translateY(-50%);
+            background-repeat: no-repeat;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' fill='none' viewBox='0 0 6 8'%3e%3cpath stroke='%23353255' d='M1 .5L5 4 1 7.5' opacity='.5'/%3e%3c/svg%3e");
+        }
+
+        &--current {
+            color: #353255;
+            opacity: 0.5;
+            &:after {
+                content: none;
+                background: none;
+            }
+        }
+    }
+}
+</style>
