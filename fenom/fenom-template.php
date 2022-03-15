@@ -16,6 +16,7 @@
 {$_modx->resource | print}
 {$order | print}
 {$_pls['tv.picture']}
+{$_pls['tv.picture'] | phpthumbon : "w=480&h=200&zc=95"}
 
 {set $rows = json_decode($id | resource : 'service-tv', true)}
 {foreach $rows as $row}
