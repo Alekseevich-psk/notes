@@ -23,7 +23,7 @@ installPackage('AjaxForm');
 installPackage('Collections');
 installPackage('FastUploadTV');
 installPackage('filetranslit');
-installPackage('Image SEO alt and title tags');
+// installPackage('Image SEO alt and title tags');
 // installPackage('SEO Pro');
 installPackage('Summary');
 installPackage('ClientConfig');
