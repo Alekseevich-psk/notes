@@ -91,6 +91,26 @@
     {$row.image}
 {/foreach}
 
+{set $rows = (1 | resource: "mainSlider") | fromJSON}
+{foreach $rows as $row}
+    <div class="main__slide swiper-slide">
+	<div class="main__slide-bg">
+	    {set $pictureForSlider = './assets/template/files_user/' ~ $row.picture}
+	    <img src="{$pictureForSlider | phpthumbon : "w=1920&h=800&zc=95"}" alt="">
+	</div>
+	<div class="container">
+	    <div class="main__wrap-utp">
+		<div class="main__title">{$row.title}</div>
+		<div class="main__desc">{$row.desc}</div>
+		<div class="main__btns-wrap">
+		    <a href="{$row.link | url}" class="main__btn main__btn--link">Подробнее</a>
+		    <button class="main__btn main__btn--order open__popup">Оставить заявку</button>
+		</div>
+	    </div>
+	</div>
+    </div>
+{/foreach}
+
 // Вывод MIGX через Fenom для определенного ресурса:
 {set $rows = json_decode(1 | resource: 'tvname', true)}
 {foreach $rows as $row}
