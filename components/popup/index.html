@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup</title>
+</head>
+
+<body>
+    <div class="popup">
+        <div class="popup__overlay">
+            <div class="popup__body">
+                <div class="popup__close"></div>
+                <div class="popup__wrap">
+                    <div class="popup__title">Оставьте заявку</div>
+                    <div class="popup__desc">Мы перезвоним Вам максимально быстро</div>
+                    <form action="" class="popup__form" method="post">
+                        <input type="text" name="your-name" class="you-name" id="">
+
+                        <div class="popup__item popup__item--date">
+                            <input type="text" class="popup__input popup__input--date" name="date" placeholder="date">
+                        </div>
+
+                        <div class="popup__item popup__item--name">
+                            <input type="text" class="popup__input" name="name" placeholder="Ваше имя">
+                        </div>
+
+                        <div class="popup__item popup__item--phone">
+                            <input type="number" class="popup__input" name="phone" placeholder="Телефон">
+                        </div>
+
+                        <div class="popup__align">
+                            <button type="submit" class="popup__button">Отправить</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="popup__success">
+                    <div class="popup__title">Благодарим за обращение!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+.popup {
+    // display: none;
+
+    &.is_active {
+        display: block;
+    }
+
+    &__wrap {
+        &.hide {
+            display: none;
+        }
+    }
+
+    &__success {
+        display: none;
+        padding: 40px 0;
+
+        &.show {
+            display: block;
+        }
+    }
+
+    &__overlay {
+        z-index: 300;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(44, 44, 44, 0.3);
+        overflow-y: auto;
+    }
+
+    &__body {
+        position: relative;
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 40px;
+        margin: 10% auto;
+        width: 540px;
+        height: auto;
+        text-align: center;
+
+        @media (max-width: 768px) {
+            width: 90%;
+            margin-top: 25%;
+            padding: 40px 28px;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        cursor: pointer;
+        top: 16px;
+        right: 16px;
+        width: 24px;
+        height: 24px;
+        opacity: 0.4;
+        transition: 0.15s;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' fill='none' viewBox='0 0 19 19'%3e%3cpath fill='%23202020' d='M11.41 9l7.29-7.29A1 1 0 0017.29.3L10 7.59 2.71.29A1 1 0 001.3 1.7L8.59 9l-7.3 7.29A1.001 1.001 0 102.7 17.7l7.3-7.29 7.29 7.29a1 1 0 001.41-1.41L11.41 9z'/%3e%3c/svg%3e");
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    &__title {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        line-height: 1;
+    }
+
+    &__desc {
+        line-height: 1;
+        margin-bottom: 24px;
+    }
+
+    &__item {
+        margin-bottom: 20px;
+
+        &--date {
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    &__input {
+        padding: 12px 20px;
+        width: 100%;
+        border-radius: 8px;
+        font-size: 20px;
+        border: 1px solid rgb(199, 199, 199);
+    }
+
+    &__button {
+        background-color: $green;
+        border: none;
+        padding: 16px 40px 17px;
+        line-height: 1;
+        border-radius: 8px;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        transition: 0.14s;
+
+        &:hover {
+            background-color: #37e490;
+        }
+
+        &:active {
+            background-color: #1c754a;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .button {
+            width: 100%;
+        }
+    }
+
+    .you-name {
+        display: none;
+    }
+}
