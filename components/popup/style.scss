@@ -1,5 +1,5 @@
 .popup {
-    // display: none;
+    display: none;
 
     &.is_active {
         display: block;
@@ -94,6 +94,10 @@
         border-radius: 8px;
         font-size: 20px;
         border: 1px solid rgb(199, 199, 199);
+
+        &:hover, &:active, &:focus {
+            border: 1px solid #1E4261;
+        }
     }
 
     &__button {
