@@ -60,6 +60,8 @@
 {$_modx->config.system_setting} - вывод системной настройки
 {$_modx->resource.parent | resource : 'tv_name'}
 
+{$_modx->runSnippet('phone', ['input' => $phoneMsk])}
+
 //MS2
 {$id | resource: 'price'}
 
