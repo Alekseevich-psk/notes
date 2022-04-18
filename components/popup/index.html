@@ -16,7 +16,9 @@
                 <div class="popup__wrap">
                     <div class="popup__title">Оставьте заявку</div>
                     <div class="popup__desc">Мы перезвоним Вам максимально быстро</div>
+
                     <form action="" class="popup__form" method="post">
+
                         <input type="text" name="your-name" class="you-name" id="">
 
                         <div class="popup__item popup__item--date">
@@ -24,11 +26,18 @@
                         </div>
 
                         <div class="popup__item popup__item--name">
-                            <input type="text" class="popup__input" name="name" placeholder="Ваше имя">
+                            <label for="">Ваше имя</label>
+                            <input type="text" class="popup__input" name="name" id="name">
                         </div>
 
                         <div class="popup__item popup__item--phone">
-                            <input type="tel" class="popup__input" name="phone" placeholder="Телефон">
+                            <label for="phone">Ваше имя</label>
+                            <input type="tel" class="popup__input" name="phone" id="phone">
+                        </div>
+
+                        <div class="popup__item popup__item--phone">
+                            <label for="message">Кратко опишите Ваши задачи для получения консультации</label>
+                            <input type="text" class="popup__input" name="message" id="message">
                         </div>
 
                         <div class="popup__align">
@@ -36,6 +45,7 @@
                         </div>
 
                     </form>
+
                 </div>
                 <div class="popup__success">
                     <div class="popup__title">Благодарим за обращение!</div>

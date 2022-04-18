@@ -1,5 +1,5 @@
 .popup {
-    display: none;
+    // display: none;
 
     &.is_active {
         display: block;
@@ -79,6 +79,12 @@
     &__item {
         margin-bottom: 20px;
 
+        label {
+            display: block;
+            padding-bottom: 10px;
+            text-align: left !important;
+        }
+
         &--date {
             opacity: 0;
             visibility: hidden;
@@ -89,7 +95,7 @@
     }
 
     &__input {
-        padding: 12px 20px;
+        padding: 8px 20px;
         width: 100%;
         border-radius: 8px;
         font-size: 20px;
