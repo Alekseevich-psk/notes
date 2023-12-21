@@ -1,0 +1,74 @@
+   {$_modx->runSnippet('!AjaxForm', [
+    'snippet'=>'FormIt',
+    'hooks'=>'spam,email,FormItSaveForm',
+    'form'=>'@FILE:chunks/ajax-form/form-footer.tpl',
+    'formName' => 'Заявка с сайта',
+    'emailSubject' => 'Форма заказа звонка с сайта:[[++site_url]]',
+    'emailTo' => $email,
+    'submitVar' => 'myform1',
+    'emailTpl' => 'callback.emailTpl',
+    'emailFrom' => 'no-reply@mysite.com',
+    'validate' => 'name:minLength=^2^, your-name:blank, name:required, phone:required,
+message:minLength=^10^',
+    'validationErrorMessage' => 'В форме содержатся ошибки!',
+    'successMessage' => 'Сообщение успешно отправлено!'
+    ])}
+    
+    
+    <h3>С сайта: {$_modx->config.http_host} оставлено сообщение.</h3>
+    {if $formName}
+    <h4>Форма: {$formName}</h4>
+    {/if}
+
+    {if $formTitle}
+    <h5>Заявка со страницы: {$formTitle}</h4>
+    {/if}
+
+    <b>Имя:</b> {$name}<br />
+    {if $phone}
+    <b>Телефон:</b> {$phone}<br />
+    {/if}
+    {if $email}
+    <b>Email:</b> {$email}<br />
+    {/if}
+
+
+<div class="popup">
+    <div class="popup__overlay">
+        <div class="popup__body">
+            <div class="popup__close"></div>
+            <div class="popup__wrap">
+                <div class="popup__title">Оставьте заявку</div>
+                <div class="popup__desc">Мы перезвоним Вам максимально быстро</div>
+                <form class="popup__form" method="post">
+                    <input type="hidden" name="myform2" value="2">
+                    <input type="text" name="your-name" class="you-name" id="">
+                    <input type="text" name="expert" class="popup__name-expert" value="Эксперт не выбран">
+
+                    <span class="error_name"></span>
+                    <div class="popup__item">
+                        <input type="text" class="input" name="name" placeholder="Ваше имя" id="">
+                    </div>
+
+                    <span class="error_name"></span>
+                    <div class="popup__item">
+                        <input type="text" class="input" name="email" placeholder="E-mail" id="">
+                    </div>
+
+                    <div class="popup__item">
+                        <textarea class="textarea" class="textarea" name="message" id="" cols="30" rows="10"
+                                  placeholder="Комментарий"></textarea>
+                    </div>
+
+                    <div class="popup__align">
+                        <button type="submit" class="button buttonAnimate">Отправить</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="popup__success">
+                <div class="popup__title">Благодарим за обращение!</div>
+            </div>
+        </div>
+    </div>
+</div>

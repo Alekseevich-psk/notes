@@ -1,0 +1,40 @@
+$bg-scroll : #c9c9c9;
+$scroll : #ffffff;
+
+body::-webkit-scrollbar {
+  width: 12px;               /* ширина scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: $bg-scroll;        /* цвет дорожки */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: $scroll;    /* цвет плашки */
+  border-radius: 20px;       /* закругления плашки */
+  border: 3px solid $bg-scroll;  /* padding вокруг плашки */
+}
+
+body {
+  scrollbar-width: thin;          /* "auto" или "thin"  */
+  scrollbar-color: $scroll c9c9c9;   /* плашка скролла и дорожка */
+}
+
+/* W3C standard
+   сейчас только для Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $scroll c9c9c9;
+}
+
+/* для Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background:$bg-scroll;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: $scroll;
+  border-radius: 5px;
+  border: 3px solid $bg-scroll;
+}

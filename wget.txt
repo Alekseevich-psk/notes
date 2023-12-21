@@ -1,0 +1,2 @@
+// Страницу с файлами
+wget -mkEpnp -e robots=off 

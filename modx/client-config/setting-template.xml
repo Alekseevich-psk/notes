@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data package="clientconfig" exported="2023-12-21@18:29:22" total="9">
+<cgSetting>
+	<id>1</id>
+	<key><![CDATA[phone]]></key>
+	<label><![CDATA[Телефон]]></label>
+	<xtype><![CDATA[textfield]]></xtype>
+	<description><![CDATA[]]></description>
+	<is_required></is_required>
+	<sortorder>0</sortorder>
+	<value><![CDATA[+7 (964) 678-23-58]]></value>
+	<default><![CDATA[]]></default>
+	<group>1</group>
+	<options><![CDATA[]]></options>
+	<process_options></process_options>
+	<source>0</source>
+</cgSetting>
+<cgSetting>
+	<id>2</id>
+	<key><![CDATA[email]]></key>
+	<label><![CDATA[E-mail]]></label>
+	<xtype><![CDATA[textfield]]></xtype>
+	<description><![CDATA[]]></description>
+	<is_required></is_required>
+	<sortorder>1</sortorder>
+	<value><![CDATA[info@surovmoto.ru]]></value>
+	<default><![CDATA[]]></default>
+	<group>1</group>
+	<options><![CDATA[]]></options>
+	<process_options></process_options>
+	<source>0</source>
+</cgSetting>
+<cgSetting>
+	<id>3</id>
+	<key><![CDATA[emailOrders]]></key>
+	<label><![CDATA[E-mail для заказов]]></label>
+	<xtype><![CDATA[textfield]]></xtype>
+	<description><![CDATA[]]></description>
+	<is_required></is_required>
+	<sortorder>2</sortorder>
+	<value><![CDATA[info@surovmoto.ru]]></value>
+	<default><![CDATA[]]></default>
+	<group>1</group>
+	<options><![CDATA[]]></options>
+	<process_options></process_options>
+	<source>0</source>
+</cgSetting>
+<cgSetting>
+	<id>4</id>
+	<key><![CDATA[vk]]></key>
+	<label><![CDATA[VK]]></label>
+	<xtype><![CDATA[textfield]]></xtype>
+	<description><![CDATA[]]></description>
+	<is_required></is_required>
+	<sortorder>3</sortorder>
+	<value><![CDATA[surov_moto]]></value>
+	<default><![CDATA[]]></default>
+	<group>2</group>
+	<options><![CDATA[]]></options>
+	<process_options></process_options>
+	<source>0</source>
+</cgSetting>
+<cgSetting>
+	<id>5</id>
+	<key><![CDATA[tg]]></key>
+	<label><![CDATA[Telegram]]></label>
+	<xtype><![CDATA[textfield]]></xtype>
+	<description><![CDATA[]]></description>
+	<is_required></is_required>
+	<sortorder>4</sortorder>
+	<value><![CDATA[@Klagish]]></value>
+	<default><![CDATA[]]></default>
+	<group>2</group>
+	<options><![CDATA[]]></options>
+	<process_options></process_options>
+	<source>0</source>
+</cgSetting>
+<cgSetting>
+	<id>6</id>
+	<key><![CDATA[whapp]]></key>
+	<label><![CDATA[WhatsApp]]></label>
+	<xtype><![CDATA[textfield]]></xtype>
+	<description><![CDATA[]]></description>
+	<is_required></is_required>
+	<sortorder>5</sortorder>
+	<value>+79646782358</value>
+	<default><![CDATA[]]></default>
+	<group>2</group>
+	<options><![CDATA[]]></options>
+	<process_options></process_options>
+	<source>0</source>
+</cgSetting>
+<cgSetting>
+	<id>7</id>
+	<key><![CDATA[adress]]></key>
+	<label><![CDATA[Адрес]]></label>
+	<xtype><![CDATA[textfield]]></xtype>
+	<description><![CDATA[]]></description>
+	<is_required></is_required>
+	<sortorder>6</sortorder>
+	<value><![CDATA[г. Псков, ул. Яна Райниса, 53]]></value>
+	<default><![CDATA[]]></default>
+	<group>1</group>
+	<options><![CDATA[]]></options>
+	<process_options></process_options>
+	<source>0</source>
+</cgSetting>
+<cgSetting>
+	<id>8</id>
+	<key><![CDATA[coords]]></key>
+	<label><![CDATA[Координаты офиса]]></label>
+	<xtype><![CDATA[textfield]]></xtype>
+	<description><![CDATA[]]></description>
+	<is_required></is_required>
+	<sortorder>7</sortorder>
+	<value><![CDATA[57.792423,28.330731]]></value>
+	<default><![CDATA[]]></default>
+	<group>1</group>
+	<options><![CDATA[]]></options>
+	<process_options></process_options>
+	<source>0</source>
+</cgSetting>
+<cgSetting>
+	<id>9</id>
+	<key><![CDATA[avito]]></key>
+	<label><![CDATA[Avito]]></label>
+	<xtype><![CDATA[textfield]]></xtype>
+	<description><![CDATA[]]></description>
+	<is_required></is_required>
+	<sortorder>8</sortorder>
+	<value><![CDATA[https://www.avito.ru/user/3b776a3ff95059c954a8f28352802af3/profile?src=sharing]]></value>
+	<default><![CDATA[]]></default>
+	<group>2</group>
+	<options><![CDATA[]]></options>
+	<process_options></process_options>
+	<source>0</source>
+</cgSetting>
+</data>

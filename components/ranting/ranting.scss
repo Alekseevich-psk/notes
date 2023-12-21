@@ -1,0 +1,45 @@
+.ranting {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  &__value {
+    margin-left: 12px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &__list {
+    height: 18px;
+  }
+
+  &__item {
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    background-size: 100% 100%;
+
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3e%3cg clip-path='url(%23a)'%3e%3cpath fill='%23FEF6E3' stroke='%23FEF6E3' stroke-linecap='round' stroke-linejoin='round' d='m8 11.833-4.115 2.164.786-4.582L1.338 6.17l4.6-.667 2.057-4.168 2.058 4.168 4.6.667-3.334 3.245.786 4.582L8 11.833Z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='a'%3e%3cpath fill='%23fff' d='M0 0h16v16H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-size: cover;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3e%3cg clip-path='url(%23a)'%3e%3cpath fill='%23FFC65E' stroke='%23FFC65E' stroke-linecap='round' stroke-linejoin='round' d='m8 11.833-4.115 2.164.786-4.582L1.338 6.17l4.6-.667 2.057-4.168 2.058 4.168 4.6.667-3.334 3.245.786 4.582L8 11.833Z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='a'%3e%3cpath fill='%23fff' d='M0 0h16v16H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
+  }
+
+  &__max-count {
+    display: none;
+  }
+}
