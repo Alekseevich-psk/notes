@@ -8,7 +8,7 @@
 {include "file:templates/document-list.tpl"}
 
 {$_modx->resource['tb1-title']}
-{$_modx->runSnippet('phone')  | phone}
+{$_modx->runSnippet('phone') | phone}
 
 {include "file:templates/index.tpl"}
 {include 'file:chunks/head.tpl'}
@@ -21,11 +21,20 @@
 {set $rows = json_decode($id | resource : 'service-tv', true)}
 {foreach $rows as $row}
 {set $photo = '/assets/template/gallery/' ~ $row.picture}
-<a class="services__link carousel__slide" data-fancybox="gallery"
-   data-src="{$photo}" data-caption="{$row.title}">
-    <img class="services__picture" src="{$photo | phpthumbon : "w=180&h=140&zc=1"}"/>
+<a class="services__link carousel__slide" data-fancybox="gallery" data-src="{$photo}" data-caption="{$row.title}">
+    <img class="services__picture" src="{$photo | phpthumbon : " w=180&h=140&zc=1"}" />
 </a>
 {/foreach}
+
+{if $_modx->hasSessionContext('mgr')}
+<div style="color:#000;position:fixed;bottom:0;width:100%; background-color:#fff;z-index:50;">
+    {set $info = $_modx->getInfo('', false)}
+    <span>Время работы: {$info.totalTime}</span>
+    <span>Время запросов: {$info.totalTime}</span>
+    <span>Количество запросов: {$info.queries}</span>
+    <span>Источник: {$info.source}</span>
+</div>
+{/if}
 
 {$_modx->runSnippet('copyYears', ['start' => '2021',])}
 <base href="{$_modx->config.site_url}">
@@ -52,7 +61,7 @@
 // Получение значения TV у произвольного ресурса:
 {1 | resource: 'tv_name'}
 
-// Вывод в чанках 
+// Вывод в чанках
 {$pagetitle}
 {$description}
 
@@ -69,56 +78,56 @@
 //MS2
 {$id | resource: 'price'}
 
-[[*id]]	{$_modx->resource.id}
-[[*tv_param]]	{$_modx->resource.tv_param}
-[[%lexicon]]	{$_modx->lexicon('lexicon')}
-[[~15]]	{$_modx->makeUrl(15)}
-[[~[[*id]]]]	{$_modx->makeUrl($_modx->resource.id)}
-[[++system_setting]]	{$_modx->config.system_setting}
-[[~[[*id]]]]	{$_modx->resource.id | url}
-[[~[[+id]]]]	{$id | url}
-[[~[[!+some.placeholder]]]]  {var $plcholder= $_modx->getPlaceholder('some.placeholder')}
+[[*id]] {$_modx->resource.id}
+[[*tv_param]] {$_modx->resource.tv_param}
+[[%lexicon]] {$_modx->lexicon('lexicon')}
+[[~15]] {$_modx->makeUrl(15)}
+[[~[[*id]]]] {$_modx->makeUrl($_modx->resource.id)}
+[[++system_setting]] {$_modx->config.system_setting}
+[[~[[*id]]]] {$_modx->resource.id | url}
+[[~[[+id]]]] {$id | url}
+[[~[[!+some.placeholder]]]] {var $plcholder= $_modx->getPlaceholder('some.placeholder')}
 
 {$plcholder | url}
 
-[[~9]]	{9 | url}
-[[#9.pagetitle]]	{9 | resource : 'pagetitle'}
-[[*parent]]	{$_modx->resource.parent}
-[[+parent]]	{$parent}
-[[#[[!+some.placeholder]].parent]]	{$_modx->getPlaceholder('some.placeholder') | resource : 'parent'}
-[[!#get]]	{$.get | print_r}
+[[~9]] {9 | url}
+[[#9.pagetitle]] {9 | resource : 'pagetitle'}
+[[*parent]] {$_modx->resource.parent}
+[[+parent]] {$parent}
+[[#[[!+some.placeholder]].parent]] {$_modx->getPlaceholder('some.placeholder') | resource : 'parent'}
+[[!#get]] {$.get | print_r}
 
 
 // Вывод MIGX через Fenom для текущего ресурса:
 {set $rows = json_decode($_modx->resource.tv_images, true)}
 {foreach $rows as $row}
-    {$row.image}
+{$row.image}
 {/foreach}
 
 {set $rows = (1 | resource: "mainSlider") | fromJSON}
 {foreach $rows as $row}
-    <div class="main__slide swiper-slide">
-	<div class="main__slide-bg">
-	    {set $pictureForSlider = './assets/template/files_user/' ~ $row.picture}
-	    <img src="{$pictureForSlider | phpthumbon : "w=1920&h=800&zc=95"}" alt="">
-	</div>
-	<div class="container">
-	    <div class="main__wrap-utp">
-		<div class="main__title">{$row.title}</div>
-		<div class="main__desc">{$row.desc}</div>
-		<div class="main__btns-wrap">
-		    <a href="{$row.link | url}" class="main__btn main__btn--link">Подробнее</a>
-		    <button class="main__btn main__btn--order open__popup">Оставить заявку</button>
-		</div>
-	    </div>
-	</div>
+<div class="main__slide swiper-slide">
+    <div class="main__slide-bg">
+        {set $pictureForSlider = './assets/template/files_user/' ~ $row.picture}
+        <img src="{$pictureForSlider | phpthumbon : " w=1920&h=800&zc=95"}" alt="">
     </div>
+    <div class="container">
+        <div class="main__wrap-utp">
+            <div class="main__title">{$row.title}</div>
+            <div class="main__desc">{$row.desc}</div>
+            <div class="main__btns-wrap">
+                <a href="{$row.link | url}" class="main__btn main__btn--link">Подробнее</a>
+                <button class="main__btn main__btn--order open__popup">Оставить заявку</button>
+            </div>
+        </div>
+    </div>
+</div>
 {/foreach}
 
 // Вывод MIGX через Fenom для определенного ресурса:
 {set $rows = json_decode(1 | resource: 'tvname', true)}
 {foreach $rows as $row}
-    {$row.image}
+{$row.image}
 {/foreach}
 
 // Получение изображения через переменную с точкой ($_pls)
@@ -128,11 +137,9 @@
 
 //Получение превью изображений в корзине
 {if $product['120x90']?}
-<img src="{$product['120x90']}" alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
+<img src="{$product['120x90']}" alt="{$product.pagetitle}" title="{$product.pagetitle}" />
 {else}
-<img src="{'assets_url' | option}components/minishop2//web/ms2_small.png" 
-srcset="{'assets_url' | option}components/minishop2/img/web/ms2_small@2x.png 2x" 
-alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
+<img src="{'assets_url' | option}components/minishop2//web/ms2_small.png" srcset="{'assets_url' | option}components/minishop2/img/web/ms2_small@2x.png 2x" alt="{$product.pagetitle}" title="{$product.pagetitle}" />
 {/if}
 
 //Проверка авторизации
@@ -154,9 +161,9 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
 {/if}
 
 {if $_modx->resource.id == 1}
-    <img class="headerLogo" src="/assets/templates/img/logo.svg" alt=""/>
+<img class="headerLogo" src="/assets/templates/img/logo.svg" alt="" />
 {else}
-    <img class="headerLogoPage" src="/assets/templates/img/logo.svg" alt=""/>
+<img class="headerLogoPage" src="/assets/templates/img/logo.svg" alt="" />
 {/if}
 
 // выбор между полями
@@ -171,9 +178,9 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
 {/if}
 
 {'!pdoPage' | snippet : [
-    'parents' => $_modx->resource.id, 
-    'limit' => 5,
-    'toPlaceholder' => 'result'
+'parents' => $_modx->resource.id,
+'limit' => 5,
+'toPlaceholder' => 'result'
 ]}
 
 {'result' | placeholder}
@@ -188,16 +195,16 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
 ]]
 
 {$_modx->runSnippet('!pdoResources',[
-   'parents' => 12,
-   'includeTVs' => 'imgSlide',
-    'tpl' => '@FILE chunks/stockChunk.tpl'
+'parents' => 12,
+'includeTVs' => 'imgSlide',
+'tpl' => '@FILE chunks/stockChunk.tpl'
 ])}
 
 
 {set $rows = json_decode(18 | resource : 'addPdf', true)}
-   {foreach $rows as $row}
-	<div class="gratitude_slide"><img src="/assets/uploads/{$row.image}" alt="{$row.caption}"/></div>
-   {/foreach}
+{foreach $rows as $row}
+<div class="gratitude_slide"><img src="/assets/uploads/{$row.image}" alt="{$row.caption}" /></div>
+{/foreach}
 
 
 {$_modx->config.vk}
@@ -218,8 +225,10 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
 </div>
 
 <div class="col-xl-3 col-md-6 col-xs-12 mb-3 service-card">
-    <img src="{$_pls['tv.picture'] | phpthumbon : "w=480&h=200&zc=95"}" alt="{$longtitle}">
-    <a href="{$id | url}" class="slider__link"><div class="slider__sub-title">{$longtitle}</div></a> 
+    <img src="{$_pls['tv.picture'] | phpthumbon : " w=480&h=200&zc=95"}" alt="{$longtitle}">
+    <a href="{$id | url}" class="slider__link">
+        <div class="slider__sub-title">{$longtitle}</div>
+    </a>
     {set $rows = ($id | resource: "tableServiceCards") | fromJSON}
     {foreach $rows as $row}
     <div class="price_cards">Цена: <b>{$row.price} руб.</b></div>
@@ -229,13 +238,13 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
 
 
 {$_modx->runSnippet('FormIt', [
-  'hooks' => 'email,redirect',
-  'emailSubject' => 'Заявка с сайта: обратный звонок',
-  'emailTpl' => 'kontact-form_phone_name',
-  'emailTpl' => $_modx->config.email,
-  'emailFrom' => 'no-reply@karsan60.ru',
-  'redirectTo' => 17,
-  'submitVar' => 'myform1',
+'hooks' => 'email,redirect',
+'emailSubject' => 'Заявка с сайта: обратный звонок',
+'emailTpl' => 'kontact-form_phone_name',
+'emailTpl' => $_modx->config.email,
+'emailFrom' => 'no-reply@karsan60.ru',
+'redirectTo' => 17,
+'submitVar' => 'myform1',
 ])}
 
 
@@ -250,27 +259,27 @@ alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
 ])}
 
 {'pdoResources' | snippet : [
-    'parents' => '54',
-    'resources' => '55,56,57,72,73,91,71',
-    'sortdir' => 'ASC',
-    'limit' => 8,
-    'includeContent' => '1',
-    'includeTVs' => 'picture',
-    'tpl' => '@FILE chunks/slider/service-slider-index.tpl'
-    ]}
+'parents' => '54',
+'resources' => '55,56,57,72,73,91,71',
+'sortdir' => 'ASC',
+'limit' => 8,
+'includeContent' => '1',
+'includeTVs' => 'picture',
+'tpl' => '@FILE chunks/slider/service-slider-index.tpl'
+]}
 
 {set $emailFrom = 'mail_smtp_user'|option}
 {$_modx->runSnippet('!AjaxForm', [
-    'snippet' => 'FormIt',
-    'form' => 'tpl.AjaxForm.link',
-    'hooks' => 'email',
-    'emailTpl' => 'tpl.email.question',
-    'emailSubject' => 'Тема письма',
-    'emailTo' => 'example@mail.ru',
-    'emailFrom' => $emailFrom,
-    'validate' => 'message:required',
-    'validationErrorMessage' => 'Ошибки при заполнении формы',
-    'successMessage' => 'Сообщение успешно отправлено!'
+'snippet' => 'FormIt',
+'form' => 'tpl.AjaxForm.link',
+'hooks' => 'email',
+'emailTpl' => 'tpl.email.question',
+'emailSubject' => 'Тема письма',
+'emailTo' => 'example@mail.ru',
+'emailFrom' => $emailFrom,
+'validate' => 'message:required',
+'validationErrorMessage' => 'Ошибки при заполнении формы',
+'successMessage' => 'Сообщение успешно отправлено!'
 ])}
 
 {$_modx->runSnippet('pdoMenu', [
