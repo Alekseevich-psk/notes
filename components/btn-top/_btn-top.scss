@@ -1,0 +1,39 @@
+.btn-top {
+    display: none;
+    cursor: pointer;
+    z-index: 100;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 38px;
+    height: 38px;
+
+    @media (max-width: 768px) {
+        bottom: 10%;
+    }
+
+    &.show {
+        display: block;
+    }
+
+    &__element {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 50%;
+
+        &:after {
+            position: absolute;
+            border-radius: 50%;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $active;
+            mask-size: 100% 100%;
+            mask-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12 7L16 11.2857M12 7L8 11.2857M12 7V17' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ");
+        }
+    }
+}

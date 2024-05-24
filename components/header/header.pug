@@ -1,0 +1,24 @@
+include data.pug
+
+header.header#header
+    .header__container.container 
+        .header__wrapper 
+            .header__inner.header__inner--menu
+                .header__menu.menu
+                    ul.menu__list
+                        li.menu__item.menu__item--logo 
+                            img(src="./images/svg/logo.svg", alt="")
+                        li.menu__item.menu__item--title 
+                            img(src="./images/svg/el-main-title-ru.svg", alt="title")
+                        each item in menuItems
+                            li.menu__item 
+                                a(href=item.id title="title").menu__link=item.title 
+            .header__inner.header__inner--local
+                .header__local
+                    ul.local__list
+                        li.local__item.active
+                            a(href="#" title="title").local__link Rus
+                        li.local__item
+                            a(href="#" title="title").local__link Eng
+            .header__inner.header__inner--menu-button
+                button(type="button").header__menu-button   
