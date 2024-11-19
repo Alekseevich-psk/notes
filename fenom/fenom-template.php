@@ -26,6 +26,8 @@
 </a>
 {/foreach}
 
+<script src="{'/assets/template2/js/main.scripts.js'|file_mtime}"></script>
+
 {if $_modx->hasSessionContext('mgr')}
 <div style="color:#000;position:fixed;bottom:0;width:100%; background-color:#fff;z-index:50;">
     {set $info = $_modx->getInfo('', false)}
