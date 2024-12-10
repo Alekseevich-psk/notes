@@ -1,23 +1,20 @@
 (function () {
     const links = document.querySelectorAll('a[href*="#"]');
-    if (links.length <= 0) return;
+    if (links.length === 0) return;
 
-    let marginTop = 100;
-    if (window.innerWidth <= 768) marginTop = 80;
+    let marginTop = window.innerWidth <= 768 ? 0 : 100;
 
-    window.addEventListener("resize", () => {
-        if (window.innerWidth <= 768) {
-            marginTop = 80;
-        }
-    });
+    const updateMarginTop = () => {
+        marginTop = window.innerWidth <= 768 ? 0 : 100;
+    };
+
+    window.addEventListener("resize", updateMarginTop);
 
     links.forEach((link) => {
         link.addEventListener("click", (e) => {
-            const blockID = link.getAttribute("href").substr(1);
-
-            if (blockID && blockID !== "") {
-                const elem = document.querySelector(`#${blockID}`);
-
+            const blockID = link.getAttribute("href")?.substring(1);
+            if (blockID) {
+                const elem = document.getElementById(blockID);
                 if (elem) {
                     e.preventDefault();
                     window.scrollBy({
