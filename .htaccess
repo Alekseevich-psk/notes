@@ -1,0 +1,48 @@
+# === Блокировка спам-ботов, отправляющих формы ===
+
+# Запрещаем POST-запросы с подозрительными User-Agent
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{HTTP_USER_AGENT} (libwww|wget|curl|python-requests|masscan|nikto|ZmEu|sqlmap|joomscan|dirbuster) [NC]
+RewriteRule ^.*$ - [F,L]
+
+# Блокировка POST-запросов с пустым User-Agent
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{HTTP_USER_AGENT} ^$
+RewriteRule ^.*$ - [F,L]
+
+# Блокировка POST на типичные урлы, которые атакуют боты
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^(wp-login\.php|wp-admin|administrator|admin\.php|login\.php|xmlrpc\.php) - [F,L]
+
+# === Блокировка подозрительных ботов и сканеров ===
+RewriteEngine On
+
+# Блокируем по User-Agent (часто используемые нежелательные)
+RewriteCond %{HTTP_USER_AGENT} (libwww|wget|curl|python-requests|masscan|sqlmap|ZmEu|nikto|WPScan|joomscan|DirBuster|sqlmap|w3af) [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} (crawler|bot|scanner|audit|attack|vulnerability|scan) [NC]
+RewriteRule ^.*$ - [F,L]
+
+# Блокировка пустого User-Agent (часто у сканеров)
+RewriteCond %{HTTP_USER_AGENT} ^$
+RewriteRule ^.*$ - [F,L]
+
+# Блокировка по рефереру (спам-боты с определённых доменов)
+RewriteCond %{HTTP_REFERER} (semalt\.com|darodar\.com|buttons-for-website\.com|best-seo-offer\.com) [NC]
+RewriteRule ^.*$ - [F,L]
+
+# === Дополнительно: ограничение скорости запросов (простая защита) ===
+# Требует модуль mod_evasive или mod_security, но можно частично имитировать
+# Пример: если более 10 запросов за 10 секунд — бан
+SetEnvIf Request_URI "^/.*$" RateLimit
+SetEnvIf Request_URI "^/robots\.txt$" !RateLimit
+
+# Ограничение: только 10 запросов с одного IP за 10 секунд
+# (работает только с mod_ratelimit, но лучше использовать mod_evasive или fail2ban)
+
+# Блокировка реферерного спама
+RewriteCond %{HTTP_REFERER} (semalt\.com|darodar\.com|buttons-for-website\.com|best-seo-offer\.com|get-free-social-traffic\.com|social-buttons\.com|kambasoft\.com|seo-analysis\.com) [NC]
+RewriteRule ^.*$ - [F,L]
+
+# Разрешить Google и Yandex
+RewriteCond %{HTTP_USER_AGENT} (Googlebot|YandexBot|Bingbot) [NC]
+RewriteRule ^.*$ - [L]
